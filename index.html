@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/mobile.css">
+    <title>TodoList by VALITOV.SOFTWARE</title>
+</head>
+<body>  
+    <main class="container">
+        <div class="wrapper">
+            <h1>Todo List</h1>
+            
+            <div class="input-box">
+                <div class="floating-label">
+                    <input type="text" id="taskInput" placeholder=" ">
+                    <label for="taskInput">New task title</label>
+                </div>
+                <button>Add</button>
+            </div>
+
+            <div class="input-box">
+                <div class="floating-label">
+                    <input type="search" id="searchInput" placeholder=" " title="В разработке">
+                    <label for="searchInput">Search task (В разработке)</label>
+                </div>
+            </div>
+
+            <div class="total-delete">
+                <p>Total tasks: <span>1</span></p>
+                <button>Delete all</button>
+            </div>
+
+            <ul class="tasks-container">
+                <li class="task">
+                    <div class="left-place">
+                        <input type="checkbox">
+                        <span>Task #1</span>
+                    </div>
+                    <div class="right-place">
+                        <button aria-label="Edit task">
+                            <img src="./images/description_btn.svg" alt="">
+                        </button>
+                        <button aria-label="Delete task">
+                            <img src="./images/clear_btn.svg" alt="" class="">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <div class="info-bord">
+                <p>Completed: <span>0</span></p>
+                <p>Uncomplited: <span>0</span></p>
+            </div>
+            <span class="author">by VALITOV.SOFTWARE</span>
+        </div>
+    </main>
+    <script src="./scripts/main.js" defer></script>
+</body>
+</html>

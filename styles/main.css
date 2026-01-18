@@ -1,0 +1,287 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inter', Arial, sans-serif;
+    background-image: url(/images/background-img.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(255, 255, 255);
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    height: 600px;
+    padding: 20px;
+    padding-bottom: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Styles for input */
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.input-box button, .total-delete button {
+    background-color: #ffffff;
+    color: black;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input-box button {
+    height: 40px;
+    padding: 10px 15px;
+}
+
+.input-box input[type="search"] {
+    pointer-events: none;
+    
+}
+
+
+
+.input-box:has(button) .floating-label {
+    margin-right: 10px;
+}
+
+.input-box button:hover,
+.total-delete button:hover {
+    background-color: rgba(255, 255, 255, 0.9); 
+    transform: translateY(-1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.input-box button:active,
+.total-delete button:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: none;
+}
+
+
+/* Styles for label" */
+
+
+.floating-label {
+    position: relative;
+    flex-grow: 1;
+}
+
+
+.floating-label input {
+    width: 100%;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    color: black;
+    outline: none;
+    font-size: 14px;
+}
+
+.floating-label label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+
+    padding: 0 4px; 
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    background: rgba(210, 220, 230, 0.9); 
+    border-radius: 4px;
+}
+
+/* Styles for total task and "button - delete" */
+
+.total-delete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.total-delete button {
+    padding: 10px ;
+}
+
+
+.total-delete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.total-delete button {
+    padding: 10px ;
+}
+
+
+/* Styles for task */
+
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    row-gap: 10px;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 0;
+    padding-right: 5px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: background 0.3s ease;
+}
+
+.task:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Complete action */ 
+.task.completed span {
+    text-decoration: line-through;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.task.completed {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.task.fall {
+    transform: translateY(20px);
+    opacity: 0;
+    margin-bottom: -50px;
+    pointer-events: none;
+    transition: all 1s ease; 
+}
+
+
+
+.tasks-container::-webkit-scrollbar {
+    width: 5px;
+}
+.tasks-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(105, 104, 104);
+    
+}
+
+
+.right-place {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    column-gap: 5px;
+}
+
+.right-place button {
+    transition: transform 0.2 ease, opacity 0.2 ease;
+}
+
+.right-place button:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.right-place button:active {
+    transform: scale(0.9);
+}
+
+.right-place__icon {
+    width: 20px;
+    cursor: pointer;
+}
+
+.left-place {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+}
+
+.left-place input[type="checkbox"]{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    accent-color: #ffffff;
+    transition: transform 0.2s ease;
+    
+}
+
+
+.info-bord {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    font-size: 13px;
+    margin-top: 10px;
+    width: 100%;
+    
+}
+
+.author {
+    position: absolute;
+    bottom: 3px;
+    right: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    color: rgb(0, 0, 0, 0.4);
+ 
+}
+
