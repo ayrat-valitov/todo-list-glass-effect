@@ -6,7 +6,7 @@ This is my first project where I’m practicing core Web Development skills. The
 
 1) HTML5;
 2) CSS3;
-3) JS (next ver.).
+3) JS.
 
 ** Progress **
 
@@ -14,10 +14,11 @@ This is my first project where I’m practicing core Web Development skills. The
 [x] Implemented frosted glass effect using backdrop-filter.
 [x] Responsive on mobile version
 [x] Hover/active effects and animated floating labels. 
+[x] DOM manipulation for adding tasks (JS)
 
-**What would you like to make in future versions?
+** What do I plan to implement in future versions? **
 
-[] DOM manipulation for adding/deleting tasks (JS).
+[] DOM manipulation for deleting tasks (JS).
 [] Real-time filtering system (Input search) (JS).
 [] Add localStorage (JS)
 [] limiting text in fields (CSS)
