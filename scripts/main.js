@@ -3,12 +3,14 @@ const taskList = []
 const elementsHTML = {
     input: document.querySelector('#taskInput'),
     buttonADD: document.querySelector('.addBtn'),
+    buttonAllTask: document.querySelector('.total-delete__all'),
     tasksContainer: document.querySelector('.tasks-container'),
     taskCounter: document.querySelector('.total-delete__counter')
 }
 
 function createNewTask() {
     const taskValue = elementsHTML.input.value
+    if(!taskValue) return 
     const newTask = {
         id: Date.now(),
         taskName: taskValue,
@@ -18,6 +20,12 @@ function createNewTask() {
     taskList.push(newTask)
     renderList()
     renderCounter()
+}
+
+function deleteAllTask() {
+    taskList.length = 0
+    renderCounter()
+    renderList()
 }
 
 function renderCounter() {
@@ -32,7 +40,7 @@ function renderList() {
             <li class="task" id="${task.id}">
                 <div class="left-place">
                     <input type="checkbox">
-                    <span>${task.taskName}</span>
+                    <span class="taskText">${task.taskName}</span>
                 </div>
                 <div class="right-place">
                     <button aria-label="Edit task">
@@ -48,4 +56,5 @@ function renderList() {
     })
 }
 
+elementsHTML.buttonAllTask.addEventListener('click', deleteAllTask)
 elementsHTML.buttonADD.addEventListener('click', createNewTask)

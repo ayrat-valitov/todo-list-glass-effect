@@ -15,6 +15,7 @@ This is my first project where I’m practicing core Web Development skills. The
 [x] Responsive on mobile version
 [x] Hover/active effects and animated floating labels. 
 [x] DOM manipulation for adding tasks (JS)
+[x] DOM manipulation for deleting all tasks (JS).
 
 ** What do I plan to implement in future versions? **
 

@@ -39,7 +39,7 @@ body {
 .wrapper h1 {
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 }
 
 /* Styles for input */
@@ -49,7 +49,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 11px; 
 }
 
 .input-box button, .total-delete button {
@@ -142,7 +142,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 35px;
+    margin-top: 30px;
     margin-bottom: 15px;
 }
 
@@ -182,11 +182,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 10px;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.4);
     transition: background 0.3s ease;
+}
+
+.taskText {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    flex-grow: 1;
+    margin-right: 15px;
 }
 
 .task:hover {
@@ -204,13 +213,13 @@ body {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* .task.fall {
+.task.fall {
     transform: translateY(20px);
     opacity: 0;
     margin-bottom: -50px;
     pointer-events: none;
     transition: all 1s ease; 
-} */
+}
 
 
 
@@ -229,6 +238,7 @@ body {
     justify-content: center;
     align-items: center; 
     column-gap: 5px;
+    flex-shrink: 0;
 }
 
 .right-place button {
