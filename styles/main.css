@@ -199,14 +199,14 @@ body {
 }
 
 .task:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(210, 220, 230, 0.547);
+    /* background: rgba(255, 255, 255, 0.25); */
 }
 
 /* Complete action */ 
-.task.completed span {
+.completed {
     text-decoration: line-through;
-    opacity: 0.5;
-    transition: all 0.3s ease;
+    opacity: 0.6;
 }
 
 .task.completed {

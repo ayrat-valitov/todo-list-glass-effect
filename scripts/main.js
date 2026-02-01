@@ -39,8 +39,8 @@ function renderList() {
         const taskHTML = `
             <li class="task" id="${task.id}">
                 <div class="left-place">
-                    <input type="checkbox">
-                    <span class="taskText">${task.taskName}</span>
+                    <input type="checkbox" class="checkBox" ${task.done ? 'checked' : ''}>
+                    <span class="taskText ${task.done ? 'completed' : ''}">${task.taskName}</span>
                 </div>
                 <div class="right-place">
                     <button aria-label="Edit task">
@@ -56,5 +56,35 @@ function renderList() {
     })
 }
 
+function deleteNeedTask(id) {
+    const index = taskList.findIndex(task => task.id === id)
+    if(index !== -1) {
+        taskList.splice(index, 1)
+    }
+    renderList()
+    renderCounter()
+}
+
+function toggleTaskStatus(id) {
+    const task = taskList.find(task => task.id === id)
+    if(task) {
+        task.done = !task.done
+    }
+    renderList()
+}
+
 elementsHTML.buttonAllTask.addEventListener('click', deleteAllTask)
 elementsHTML.buttonADD.addEventListener('click', createNewTask)
+elementsHTML.tasksContainer.addEventListener('click', (e) => {
+    const deleteBtn = e.target.closest('.delete-btn')
+    if(!deleteBtn) return
+    const taskId = deleteBtn.closest('.task').id
+    deleteNeedTask(Number(taskId))
+})
+
+elementsHTML.tasksContainer.addEventListener('click', (e) => {
+    const checkBtn = e.target.closest('.checkBox')
+    if(!checkBtn) return
+    const taskId = checkBtn.closest('.task').id
+    toggleTaskStatus(Number(taskId))
+})
