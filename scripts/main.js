@@ -1,4 +1,4 @@
-const taskList = []
+const taskList = JSON.parse(localStorage.getItem('tasks') || '[]')
 
 const elementsHTML = {
     input: document.querySelector('#taskInput'),
@@ -20,12 +20,14 @@ function createNewTask() {
     taskList.push(newTask)
     renderList()
     renderCounter()
+    saveElementToLocalStorage()
 }
 
 function deleteAllTask() {
     taskList.length = 0
     renderCounter()
     renderList()
+    saveElementToLocalStorage()
 }
 
 function renderCounter() {
@@ -63,6 +65,7 @@ function deleteNeedTask(id) {
     }
     renderList()
     renderCounter()
+    saveElementToLocalStorage()
 }
 
 function toggleTaskStatus(id) {
@@ -71,6 +74,11 @@ function toggleTaskStatus(id) {
         task.done = !task.done
     }
     renderList()
+    saveElementToLocalStorage()
+}
+
+function saveElementToLocalStorage() {
+    localStorage.setItem('tasks', JSON.stringify(taskList))
 }
 
 elementsHTML.buttonAllTask.addEventListener('click', deleteAllTask)
@@ -88,3 +96,6 @@ elementsHTML.tasksContainer.addEventListener('click', (e) => {
     const taskId = checkBtn.closest('.task').id
     toggleTaskStatus(Number(taskId))
 })
+
+renderList()
+renderCounter()
