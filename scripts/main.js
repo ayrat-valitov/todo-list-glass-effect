@@ -59,13 +59,27 @@ function renderList() {
 }
 
 function deleteNeedTask(id) {
-    const index = taskList.findIndex(task => task.id === id)
-    if(index !== -1) {
-        taskList.splice(index, 1)
-    }
-    renderList()
-    renderCounter()
-    saveElementToLocalStorage()
+    const element = document.getElementById(id)
+    element.classList.add('fall')
+
+    element.addEventListener('transitionend', function () {
+        const index = taskList.findIndex(task => task.id === id)
+        if (index !== -1) {
+            taskList.splice(index, 1)
+        }
+
+        renderList()
+        renderCounter()
+        saveElementToLocalStorage()
+    }, { once: true })
+
+    // const index = taskList.findIndex(task => task.id === id)
+    // if(index !== -1) {
+    //     taskList.splice(index, 1)
+    // }
+    // renderList()
+    // renderCounter()
+    // saveElementToLocalStorage()
 }
 
 function toggleTaskStatus(id) {

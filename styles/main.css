@@ -79,7 +79,7 @@ body {
 .input-box button:hover,
 .total-delete button:hover {
     background-color: rgba(255, 255, 255, 0.9); 
-    transform: translateY(-1);
+    transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -150,15 +150,6 @@ body {
     padding: 10px ;
 }
 
-
-.total-delete {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
 .total-delete button {
     padding: 10px ;
 }
@@ -187,7 +178,7 @@ body {
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .taskText {
@@ -216,9 +207,18 @@ body {
 .task.fall {
     transform: translateY(20px);
     opacity: 0;
-    margin-bottom: -50px;
+
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+
+    overflow: hidden;
     pointer-events: none;
-    transition: all 1s ease; 
+    transition: all 0.1s ease; 
 }
 
 
@@ -242,7 +242,7 @@ body {
 }
 
 .right-place button {
-    transition: transform 0.2 ease, opacity 0.2 ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .right-place button:hover {
