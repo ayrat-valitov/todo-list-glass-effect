@@ -16,10 +16,12 @@ This is my first project where I’m practicing core Web Development skills. The
 [x] Hover/active effects and animated floating labels. 
 [x] DOM manipulation for adding tasks (JS)
 [x] DOM manipulation for deleting all tasks (JS).
+[x] Add localStorage (JS)
+[x] DOM manipulation for deleting tasks (JS).
+[x] Add task submission on Enter (JS)
 
 ** What do I plan to implement in future versions? **
 
 [] DOM manipulation for deleting tasks (JS).
 [] Real-time filtering system (Input search) (JS).
-[] Add localStorage (JS)
 [] limiting text in fields (CSS)

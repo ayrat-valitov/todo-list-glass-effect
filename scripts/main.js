@@ -5,7 +5,9 @@ const elementsHTML = {
     buttonADD: document.querySelector('.addBtn'),
     buttonAllTask: document.querySelector('.total-delete__all'),
     tasksContainer: document.querySelector('.tasks-container'),
-    taskCounter: document.querySelector('.total-delete__counter')
+    taskCounter: document.querySelector('.total-delete__counter'),
+    taskCompletedCounter: document.querySelector('.counterCompleted'),
+    taskUnCompletedCounter: document.querySelector('.counterUnCompleted'),
 }
 
 function createNewTask() {
@@ -32,6 +34,12 @@ function deleteAllTask() {
 
 function renderCounter() {
     elementsHTML.taskCounter.innerHTML = taskList.length
+
+    const completedCount = taskList.filter(task => task.done).length
+    const uncompletedCount = taskList.length - completedCount
+    elementsHTML.taskCompletedCounter.innerHTML = completedCount
+    elementsHTML.taskUnCompletedCounter.innerHTML = uncompletedCount
+
 }
 
 function renderList() {
@@ -109,6 +117,13 @@ elementsHTML.tasksContainer.addEventListener('click', (e) => {
     if(!checkBtn) return
     const taskId = checkBtn.closest('.task').id
     toggleTaskStatus(Number(taskId))
+    renderCounter()
+})
+
+elementsHTML.input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        createNewTask()
+    } 
 })
 
 renderList()
