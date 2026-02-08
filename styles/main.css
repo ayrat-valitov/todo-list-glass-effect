@@ -187,6 +187,7 @@ body {
     word-break: break-word;
     flex-grow: 1;
     margin-right: 15px;
+    margin-bottom: 3px;
 }
 
 .task:hover {
@@ -264,6 +265,7 @@ body {
     column-gap: 5px;
     align-items: center;
 }
+
 
 .left-place input[type="checkbox"]{
     cursor: pointer;
