@@ -32,6 +32,12 @@ function deleteAllTask() {
     saveElementToLocalStorage()
 }
 
+function escapeHTML(str) {
+    const div = document.createElement('div')
+    div.textContent = str
+    return div.innerHTML
+}
+
 function renderCounter() {
     elementsHTML.taskCounter.innerHTML = taskList.length
 
@@ -50,12 +56,9 @@ function renderList() {
             <li class="task" id="${task.id}">
                 <div class="left-place">
                     <input type="checkbox" class="checkBox" ${task.done ? 'checked' : ''}>
-                    <span class="taskText ${task.done ? 'completed' : ''}">${task.taskName}</span>
+                    <span class="taskText ${task.done ? 'completed' : ''}">${escapeHTML(task.taskName)}</span>
                 </div>
                 <div class="right-place">
-                    <button aria-label="Edit task">
-                        <img src="./images/description_btn.svg" alt="">
-                    </button>
                     <button aria-label="Delete task" class="delete-btn">
                         <img src="./images/clear_btn.svg" alt="" class="">
                     </button>
@@ -80,14 +83,6 @@ function deleteNeedTask(id) {
         renderCounter()
         saveElementToLocalStorage()
     }, { once: true })
-
-    // const index = taskList.findIndex(task => task.id === id)
-    // if(index !== -1) {
-    //     taskList.splice(index, 1)
-    // }
-    // renderList()
-    // renderCounter()
-    // saveElementToLocalStorage()
 }
 
 function toggleTaskStatus(id) {

@@ -19,9 +19,9 @@ This is my first project where I’m practicing core Web Development skills. The
 [x] Add localStorage (JS)
 [x] DOM manipulation for deleting tasks (JS).
 [x] Add task submission on Enter (JS)
+[x] DOM manipulation for deleting tasks (JS).
 
 ** What do I plan to implement in future versions? **
 
-[] DOM manipulation for deleting tasks (JS).
 [] Real-time filtering system (Input search) (JS).
-[] limiting text in fields (CSS)
+
