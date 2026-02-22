@@ -2,6 +2,7 @@ const taskList = JSON.parse(localStorage.getItem('tasks') || '[]')
 
 const elementsHTML = {
     input: document.querySelector('#taskInput'),
+    searchInput: document.querySelector('#searchInput'),
     buttonADD: document.querySelector('.addBtn'),
     buttonAllTask: document.querySelector('.total-delete__all'),
     tasksContainer: document.querySelector('.tasks-container'),
@@ -23,6 +24,12 @@ function createNewTask() {
     renderList()
     renderCounter()
     saveElementToLocalStorage()
+}
+
+function searchTask() {
+    const needTask = elementsHTML.searchInput.value
+    const filteredList = taskList.filter(task => task.taskName.toLowerCase().includes(needTask.toLowerCase()))
+    renderList(filteredList)
 }
 
 function deleteAllTask() {
@@ -48,10 +55,10 @@ function renderCounter() {
 
 }
 
-function renderList() {
+function renderList(list = taskList) {
     elementsHTML.input.value = '';
     elementsHTML.tasksContainer.innerHTML = '';
-    taskList.forEach((task) => {
+    list.forEach((task) => {
         const taskHTML = `
             <li class="task" id="${task.id}">
                 <div class="left-place">
@@ -115,11 +122,14 @@ elementsHTML.tasksContainer.addEventListener('click', (e) => {
     renderCounter()
 })
 
+elementsHTML.searchInput.addEventListener('input', searchTask)
+
 elementsHTML.input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         createNewTask()
     } 
 })
+
 
 renderList()
 renderCounter()

@@ -63,12 +63,9 @@ body {
 .input-box button {
     height: 40px;
     padding: 10px 15px;
+    text-align: center;
+    flex-shrink: 0;
 }
-
-/* .input-box input[type="search"] {
-    pointer-events: none;
-    
-} */
 
 
 
@@ -173,7 +170,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 10px;
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
